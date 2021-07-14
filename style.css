@@ -1,23 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+SC&family=Noto+Sans+JP&display=swap');
+
+:root {
+    --one: #F1ECC3;
+    --two: #C9D8B6;
+    --three: #57837B;
+    --four: #515E63;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
 body {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-family: 'Noto Sans JP', sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background: var(--two);
+    color: black;
 }
 
-svg {
-    background: wheat;
+h1 {
+    margin: 10px;
+    font-size: 28px;
+}
+
+h2 {
+    margin: 5px;
+    font-size: 20px;
+}
+
+#root {
+    background: var(--one);
     max-width: 100%;
+    border-radius: 5px 5px 0 0;
+}
+
+#root g {
+    font-size: 14px;
+}
+
+#x-axis-label, #y-axis-label {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#legend {
+    background: var(--one);
+    margin-bottom: 25px;
+    width: 1200px;
+    border-radius: 0 0 5px 5px;
 }
 
 #tooltip {
     visibility: hidden;
     position: absolute;
-    width: auto;
+    width: 200px;
     height: auto;
     padding: 12px 16px;
     text-align: center;
-    background: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+    color: white;
+    background: rgba(81, 94, 99, 0.9);
 }
 
 .cell:hover {
