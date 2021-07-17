@@ -16,10 +16,12 @@ let svg = d3.select("svg");
 let legend = d3.select("legend");
 let tooltip = d3.select("#tooltip");
 
+// Draw canvas
 function drawCanvas() {
   svg.attr("width", width).attr("height", height);
 }
 
+// Generate necessary scales
 function generateScales() {
   yearsRange = d3.max(values, (d) => d.year) - d3.min(values, (d) => d.year);
 
@@ -34,6 +36,7 @@ function generateScales() {
     .range([padding, height - padding]);
 }
 
+// Draw each cell with appropriate fill color
 function drawCell() {
   svg
     .selectAll("rect")
@@ -73,6 +76,7 @@ function drawCell() {
     .on("mouseout", (d) => tooltip.style("visibility", "hidden"));
 }
 
+// Generate axis and their titles
 function generateAxes() {
   let xAxis = d3.axisBottom(xScale).tickFormat(d3.format("d"));
 
@@ -108,6 +112,7 @@ function generateAxes() {
     .text("Months");
 }
 
+// Fetch data
 fetch(url)
   .then((response) => response.json())
   .then((data) => {
@@ -121,6 +126,7 @@ fetch(url)
     generateAxes();
   });
 
+// Function to parse month value to a string month name
 function parseMonth(num) {
   switch (num) {
     case 1:
